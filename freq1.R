@@ -1,0 +1,9 @@
+v<-read.csv("Reviews.csv")
+x<-v[537:1100,c("ProductId","Score","Time")]
+y<-x$Score
+fhist=hist(y,plot=F,breaks=c(0:5))
+fhist$counts=fhist$counts/sum(fhist$counts)
+z=0:5
+jpeg("freq1.jpg")
+plot(fhist,freq=T,ylim=c(0,1))
+dev.off()
